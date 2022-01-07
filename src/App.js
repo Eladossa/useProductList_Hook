@@ -2,23 +2,15 @@ import { useState, useEffect } from "react";
 
 export default function useProductList() {
   const [productList, setProductObjsList] = useState([]);
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   let randomProducts = [];
 
   const fetchData = () =>
     new Promise(() => {
-      fetch("www.bbc.co.uk")
-        .then((response) => response.text())
-        .then(
-          (xml) =>
-            new window.DOMParser().parseFromString(xml, "text/xml")
-              .documentElement.firstChild.textContent
-        )
-        .then((data) => {
-          console.log(data);
-          setProductObjsList(data);
-          return data;
-        })
-        .catch((e) => console.error("Critical failure: " + e.message));
+      arr.pop(1, 7);
+
+      setProductObjsList(arr);
+      return arr;
     });
 
   const randomProduct = (productObjectList) => {
