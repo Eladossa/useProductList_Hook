@@ -7,13 +7,13 @@ export default function useProductList() {
 
   const fetchData = () =>
     new Promise(() => {
-      arr.pop(1, 7);
-
+      arr.splice(1, 7);
       setProductObjsList(arr);
       return arr;
     });
 
   const randomProduct = (productObjectList) => {
+    //some Math.random()
     console.log("randomProduct()", productObjectList);
   };
 
